@@ -8,12 +8,9 @@ list.innerHTML = '<li>Первая задача</li><li>Вторая задач�
 list.innerHTML += '<li>Третья задача</li>';
 
 
+// Общая функция для добавления
 
-// Добавляем взаимодействие с кнопкой
-
-
-// Обработчик клика на кнопку
-addBtn.addEventListener('click', function () {
+function addTask() {
     const text = taskInput.value.trim(); //убираем пробелы в начале и в конце
     if(text === '') {
         alert('Введите текст задачи!');
@@ -21,17 +18,14 @@ addBtn.addEventListener('click', function () {
     }
     list.innerHTML += '<li>' + text + '</li>';
     taskInput.value = ''; // очищаем поле после добавления
-});
+}
+
+// Обработчик клика на кнопку
+addBtn.addEventListener('click', addTask);
 
 // Обработчик нажатия на Enter в поле ввода
 taskInput.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
-        const text = taskInput.value.trim();
-        if (text === '') {
-            alert('Введите текст задачи!');
-            return;
-        }
-        list.innerHTML += '<li>' + text + '</li>';
-        taskInput.value = '';
+       addTask();
     }
 });
