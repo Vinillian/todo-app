@@ -1,0 +1,12 @@
+# Игнорировать файлы с секретами
+.env
+backend/.env
+*.env
+
+# Игнорировать node_modules
+node_modules/
+backend/node_modules/
+
+# Игнорировать системные файлы
+.DS_Store
+Thumbs.db
